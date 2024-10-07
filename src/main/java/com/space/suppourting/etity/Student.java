@@ -3,11 +3,12 @@ package com.space.suppourting.etity;
 
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
+import org.springframework.stereotype.Component;
 
 import javax.naming.Name;
 
 @Entity
-@Table(name = "studnets")
+@Table(name = "students")
 public class Student
 {
     @Id

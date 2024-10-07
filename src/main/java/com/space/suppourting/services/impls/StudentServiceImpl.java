@@ -11,10 +11,10 @@ import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-
+    @Autowired
     private StudentRepo studentRepo;
 
-@Autowired
+    @Autowired
     public StudentServiceImpl(StudentRepo studentRepo) {
     super();
         this.studentRepo = studentRepo;
