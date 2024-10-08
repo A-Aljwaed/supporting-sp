@@ -12,6 +12,7 @@ import javax.naming.Name;
 public class Student
 {
     @Id
+    @Column(name = "id",nullable = false)
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
@@ -56,6 +57,7 @@ public class Student
         this.eMail = eMail;
     }
     @Column(name = "Name",nullable = false)
+    //must match tamplets add-student th:field
     private String name;
     @Column(name = "Address")
     private String address;
