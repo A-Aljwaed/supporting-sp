@@ -6,13 +6,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Supporting Sp</a>
+            <a class ="nav-link" th:href="@{/Students}">Teilnehmer Management</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Teilnehmer</a></li>
+            <li><a href="#">Teilnehmer verwaltung</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+
+
+
 <div class="container">
 <div class="row">
 
 <div class ="col-leg-6 col-md-6 col-sm-6 container justify-content-center card">
     <h1 class ="text-center">teilnehmer-hinzufügen</h1>
     <div class ="card-body"></div>
-    <form th:action="@{/students}"th:object="${student}" method="POST"></form>
+    <form th:action="@{/students}" th:object="${student}" method="POST">
 
     <div class="form-group">
         <label for="teilnehmername">Teilnehmer Name</label>
@@ -20,7 +39,7 @@
                 type="text"
                 id="teilnehmername"
                 name="teilnehmername"
-                th:value="${name}"
+                th:field="*{name}"
                 class="form-control"
                 placeholder="Teilnehmername" />
     </div>
@@ -32,21 +51,20 @@
                 type="text"
                 id="teilnehmeradresse"
                 name="teilnehmeradresse"
-                th:value="${address}"
+                th:field="*{address}"
                 class="form-control"
                 placeholder="Teilnehmeradresse">
 
     </div>
-
     <div class="form-group">
         <label for="teilnehmeremail">Teilnehmer E-Mail</label>
         <input
                 type="email"
                 id="teilnehmeremail"
                 name="teilnehmeremail"
-                th:value="${eMail}"
-                class="form-control"
-                placeholder="Teilnehmer E-Mail" />
+                th:field="*{eMail}"
+        class="form-control"
+        placeholder="Teilnehmer E-Mail" />
     </div>
 
 
@@ -56,12 +74,13 @@
 
     </button>
 
-</div>
-
-
 
 </div>
 
 
+
+</div>
+
+    </form>
 </body>
 </html>
