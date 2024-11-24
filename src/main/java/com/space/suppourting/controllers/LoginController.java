@@ -35,14 +35,14 @@ public class LoginController {
 			ModelMap model) {
 
 
-		if(!loginservice.checkValidateUser(name, password)) {
+		if(!loginservice.checkValidateUser(name , password)) {
 			model.put("errorMsg", "Check your name and password");
 			return "login.html";
 		}
-
+       else {
 		model.put("name", name);
 		model.put("password", password);
-		return "home.html";
+		return "home.html";}
 	}
 
 
