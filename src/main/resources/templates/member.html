@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teilnehmer Liste</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Teilnehmer Übersicht</h1>
+  <a href="/member/new" class="btn">Neuen Teilnehmer hinzufügen</a>
+</header>
+
+<main>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Kontakt</th>
+      <th>Status</th>
+      <th>Aktionen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Dynamische Listeneinträge werden hier durch Thymeleaf eingefügt -->
+    <tr th:each="member : ${member}">
+      <td th:text="${member.id}"></td>
+      <td th:text="${member.firstName}"></td>
+      <td th:text="${member.contact}"></td>
+      <td th:text="${member.status}"></td>
+      <td>
+        <a href="/member/edit/{id}" class="btn btn-edit">Bearbeiten</a>
+        <a href="/member/{id}" class="btn btn-delete" th:href="@{/member/{id}(id=${member.id})}">Löschen</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</main>
+</body>
+</html>

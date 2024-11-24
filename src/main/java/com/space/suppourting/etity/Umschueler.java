@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-
+@Table(name = "umschuller")
 public class Umschueler extends Member implements HireAble {
 
 

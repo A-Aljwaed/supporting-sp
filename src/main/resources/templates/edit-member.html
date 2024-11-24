@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teilnehmer bearbeiten</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Teilnehmer bearbeiten</h1>
+  <a href="/students" class="btn">Zurück zur Liste</a>
+</header>
+
+<main>
+  <form action="/teilnehmer/{id}" method="POST">
+    <input type="hidden" name="id" th:value="${member.id}">
+
+    <label for="firstName">Vorname:</label>
+    <input type="text" id="firstName" name="firstName" th:value="${member.firstName}" required>
+
+    <label for="contact">Kontakt:</label>
+    <input type="text" id="contact" name="contact" th:value="${member.contact}" required>
+
+    <label for="status">Status:</label>
+    <input type="text" id="status" name="status" th:value="${member.status}" required>
+
+    <button type="submit" class="btn">Speichern</button>
+  </form>
+</main>
+</body>
+</html>

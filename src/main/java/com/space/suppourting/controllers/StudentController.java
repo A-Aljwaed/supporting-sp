@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller
-public class StudentController {
+
+public class StudentController extends MemberConroler{
 
 StudentService studentService;
 
 
 @Autowired
 public StudentController(StudentService studentService) {
+    super();
     this.studentService = studentService;
 }
 
@@ -31,7 +32,7 @@ model.addAttribute("students", studentService.getAllStudents());
 return "students";
     }
 
-// add new student
+ //add new student
     @GetMapping("/students/new")
     public String createStudent(Model model) {
 
@@ -61,9 +62,9 @@ public String updateStudent(@PathVariable Long id ,@ModelAttribute("student") St
 
     Student editedStudent = studentService.getStudentId(id);
     editedStudent.setId(id);
-editedStudent.setName(student.getName());
-editedStudent.setAddress(student.getAddress());
-editedStudent.seteMail(student.geteMail());
+editedStudent.setFirstName(student.getFirstName());
+editedStudent.setStatus(student.getStatus());
+editedStudent.setContact(student.getContact());
 
 
 studentService.updateStudent(editedStudent);

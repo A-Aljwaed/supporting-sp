@@ -4,14 +4,14 @@ package com.space.suppourting.etity;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "Member")
 @DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)
 public class Member {
 
     @Id
     @Column(name = "id",nullable = false)
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.TABLE)
     private Long id;
 
     @Column(name = "status",nullable = false)
